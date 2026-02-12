@@ -31,4 +31,4 @@ app.layout = create_layout()
 server = app.server  # for gunicorn / production deployment
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8050)
+    app.run(debug=True, host="localhost", port=8050)
