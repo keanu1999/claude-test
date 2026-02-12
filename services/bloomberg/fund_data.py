@@ -6,8 +6,11 @@ Wraps the low-level Pybbg calls into fund-specific methods with
 caching and convenience transformations.
 """
 
+from __future__ import annotations
+
 from datetime import date, timedelta
 from functools import lru_cache
+from typing import Optional, Union
 
 import numpy as np
 import pandas as pd
@@ -72,8 +75,8 @@ class FundDataProvider:
     def get_prices(
         self,
         tickers: list,
-        start_date: str | date = None,
-        end_date: str | date = None,
+        start_date: Optional[Union[str, date]] = None,
+        end_date: Optional[Union[str, date]] = None,
         field: str = "PX_LAST",
         periodicity: str = "DAILY",
         currency: str = None,

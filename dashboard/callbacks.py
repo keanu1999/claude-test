@@ -3,8 +3,11 @@ Dash callbacks — wires up all interactivity between controls, data stores,
 and the tab visualizations.
 """
 
+from __future__ import annotations
+
 import json
 from datetime import date, timedelta
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -18,7 +21,7 @@ from services.bloomberg.fund_data import FundDataProvider
 # ---------------------------------------------------------------------------
 # Shared Bloomberg provider (singleton per process)
 # ---------------------------------------------------------------------------
-_provider: FundDataProvider | None = None
+_provider: Optional[FundDataProvider] = None
 
 
 def _get_provider() -> FundDataProvider:
